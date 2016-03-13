@@ -46,7 +46,7 @@ module.exports = {
   },
   plugins: [
     new HtmlwebpackPlugin({
-      title: 'My app'
+      title: 'My tasks'
     }),
     new webpack.HotModuleReplacementPlugin()
   ]

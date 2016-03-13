@@ -1,7 +1,7 @@
 import React from 'react';
-import Note from './Note.jsx';
+import Task from './Task.jsx';
 
-export default class Notes extends React.Component {
+export default class Tasks extends React.Component {
 
   constructor(props) {
     super(props);
@@ -9,13 +9,13 @@ export default class Notes extends React.Component {
 
   render() {
     const notes = this.props.items;
-    return <ul className="notes">{notes.map(this.renderNote)}</ul>
+    return <ul className="notes">{notes.map(this.renderTask)}</ul>
   }
 
-  renderNote = (note) => {
+  renderTask = (note) => {
     return (
       <li className="note" key={note.id}>
-        <Note task={note.task}
+        <Task task={note.task}
               onEdit={this.props.onEdit.bind(null, note.id)}
               onDelete={this.props.onDelete.bind(null, note.id)} />
       </li>

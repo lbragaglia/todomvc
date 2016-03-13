@@ -1,23 +1,22 @@
-import uuid from "node-uuid";
 import React from "react";
-import Notes from "./Notes.jsx";
-import NoteActions from "../actions/NoteActions"
-import NoteStore from "../stores/NoteStore"
+import Tasks from "./Tasks.jsx";
+import TaskActions from "../actions/TaskActions"
+import TaskStore from "../stores/TaskStore"
 
 export default class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = NoteStore.getState();
+    this.state = TaskStore.getState();
   }
 
   componentDidMount() {
-    NoteStore.listen(this.storeChanged);
-    NoteActions.read();
+    TaskStore.listen(this.storeChanged);
+    TaskActions.read();
   }
 
   componentWillUnmount() {
-    NoteStore.unlisten(this.storeChanged);
+    TaskStore.unlisten(this.storeChanged);
   }
 
   storeChanged = (state) => {
@@ -29,25 +28,25 @@ export default class App extends React.Component {
     return (
       <div>
         <h1 className="title">ToDoMVC</h1>
-        <button className="add-note" onClick={this.addNote}>
+        <button className="add-note" onClick={this.addTask}>
           <span className="add-text">New Task</span>
           <span className="add-icon">+</span>
         </button>
-        <Notes items={notes} onEdit={this.editNote} onDelete={this.deleteNote}/>
+        <Tasks items={notes} onEdit={this.editTask} onDelete={this.deleteTask}/>
       </div>
     )
   }
 
-  addNote = () => {
-    NoteActions.create({ task : "New (click to edit)" });
+  addTask = () => {
+    TaskActions.create({ task : "New (click to edit)" });
   }
 
-  editNote = (id, task) => {
-    NoteActions.update({ id, task })
+  editTask = (id, task) => {
+    TaskActions.update({ id, task })
   }
 
-  deleteNote = (id) => {
-    NoteActions.delete(id)
+  deleteTask = (id) => {
+    TaskActions.delete(id)
   }
 
 }

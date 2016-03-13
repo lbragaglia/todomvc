@@ -1,9 +1,7 @@
-import "array.prototype.findindex";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App.jsx';
 import './css/main.css';
-
 
 function bootstrap() {
   let app = document.createElement('div');

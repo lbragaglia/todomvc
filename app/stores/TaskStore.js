@@ -1,11 +1,10 @@
-import uuid from "node-uuid";
 import alt from "../libs/alt.js";
-import NoteActions from "../actions/NoteActions";
+import TaskActions from "../actions/TaskActions";
 import * as $ from "axios";
-class NoteStore {
+class TaskStore {
 
   constructor() {
-    this.bindActions(NoteActions);
+    this.bindActions(TaskActions);
     this.notes = [];
   }
 
@@ -36,7 +35,7 @@ class NoteStore {
   update({id, task}) {
     let _this = this;
     const notes = this.notes;
-    const noteIndex = this.findNote(id);
+    const noteIndex = this.findTask(id);
 
     if(noteIndex < 0) { return }
 
@@ -58,7 +57,7 @@ class NoteStore {
   delete(id) {
     let _this = this;
     const notes = this.notes;
-    const noteIndex = this.findNote(id);
+    const noteIndex = this.findTask(id);
 
     if(noteIndex < 0) { return }
 
@@ -75,7 +74,7 @@ class NoteStore {
 
   }
 
-  findNote(id) {
+  findTask(id) {
     const notes = this.notes;
     const noteIndex = notes.findIndex((note) => note.id === id);
     if(noteIndex < 0) {
@@ -86,4 +85,4 @@ class NoteStore {
 
 }
 
-export default alt.createStore(NoteStore, 'NoteStore');
+export default alt.createStore(TaskStore, 'TaskStore');
