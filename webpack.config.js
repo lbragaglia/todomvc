@@ -1,4 +1,3 @@
-
 var path = require('path');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
 var webpack = require("webpack");
@@ -25,12 +24,12 @@ module.exports = {
     loaders: [
       {
         test: /\.css$/,
-        loaders: ['style', 'css'],
+        loader: 'style!css',
         include: PATHS.app
       },
       {
         test: /\.jsx?$/,
-        loaders: ['babel'],
+        loader: 'babel',
         include: PATHS.app
       }
     ]
