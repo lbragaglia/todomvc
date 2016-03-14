@@ -18,7 +18,8 @@ module.exports = {
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
+    alias: { 'stamplay-js-sdk': path.join(__dirname, 'bower_components/stamplay-js-sdk/dist/stamplay-nodeps.js' ) }
   },
   module: {
     loaders: [
@@ -47,6 +48,11 @@ module.exports = {
     new HtmlwebpackPlugin({
       title: 'My tasks'
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.ProvidePlugin({
+      store: "store",
+      _: "underscore",
+      Q: "q"
+    })
   ]
 };

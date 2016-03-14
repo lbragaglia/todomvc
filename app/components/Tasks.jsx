@@ -8,16 +8,16 @@ export default class Tasks extends React.Component {
   }
 
   render() {
-    const notes = this.props.items;
-    return <ul className="notes">{notes.map(this.renderTask)}</ul>
+    const tasks = this.props.items;
+    return <ul className="tasks">{tasks.map(this.renderTask)}</ul>
   }
 
-  renderTask = (note) => {
+  renderTask = (task) => {
     return (
-      <li className="note" key={note.id}>
-        <Task task={note.task}
-              onEdit={this.props.onEdit.bind(null, note.id)}
-              onDelete={this.props.onDelete.bind(null, note.id)} />
+      <li className="task" key={task.id}>
+        <Task task={task.task}
+              onEdit={this.props.onEdit.bind(null, task.id)}
+              onDelete={this.props.onDelete.bind(null, task.id)} />
       </li>
     )
   }

@@ -1,0 +1,28 @@
+{
+  "name": "myapp",
+  "description": "",
+  "main": "index.js",
+  "authors": [],
+  "license": "ISC",
+  "homepage": "https://github.com/lbragaglia/todomvc",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "stamplay-js-sdk": "lbragaglia/stamplay-js-sdk#webpacked"
+  },
+  "resolutions": {
+    "stamplay-js-sdk": "webpacked"
+  },
+  "overrides": {
+    "stamplay-js-sdk": {
+      "dependencies": []
+    }
+  }
+}

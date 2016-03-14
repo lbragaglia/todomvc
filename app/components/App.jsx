@@ -24,15 +24,15 @@ export default class App extends React.Component {
   }
 
   render() {
-    const notes = this.state.notes;
+    const tasks = this.state.tasks;
     return (
       <div>
         <h1 className="title">ToDoMVC</h1>
-        <button className="add-note" onClick={this.addTask}>
+        <button className="add-task" onClick={this.addTask}>
           <span className="add-text">New Task</span>
           <span className="add-icon">+</span>
         </button>
-        <Tasks items={notes} onEdit={this.editTask} onDelete={this.deleteTask}/>
+        <Tasks items={tasks} onEdit={this.editTask} onDelete={this.deleteTask}/>
       </div>
     )
   }
