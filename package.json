@@ -21,6 +21,7 @@
   "dependencies": {
     "alt": "^0.18.1",
     "array.prototype.findindex": "^1.0.0",
+    "axios": "^0.9.1",
     "exports-loader": "^0.6.2",
     "imports-loader": "^0.6.5",
     "node-uuid": "^1.4.7",
